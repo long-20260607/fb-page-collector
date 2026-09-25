@@ -48,8 +48,12 @@ FILES.forEach((f) => {
 
 console.log("打包中...");
 try {
+  // bsdtar 生成的 zip 条目用规范的 "/" 分隔；Compress-Archive 会写 "\" 导致 Chrome 解压失败
+  const roots = [...new Set(FILES.map((f) => f.split("/")[0]))];
+  // cmd.exe 不剥离单引号，文件名无空格故直接拼接
+  const entries = roots.join(" ");
   execSync(
-    `powershell -Command "Compress-Archive -Path '${staging.split(path.sep).join("/")}/*' -DestinationPath '${OUTPUT_FILE.split(path.sep).join("/")}' -Force"`,
+    `tar -a -c -f "${OUTPUT_FILE}" -C "${staging}" ${entries}`,
     { stdio: "inherit" }
   );
   console.log(`\n打包完成: ${OUTPUT_FILE}`);
