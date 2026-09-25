@@ -41,7 +41,6 @@ chrome.runtime.onMessage.addListener((message, _sender, reply) => {
   if (!message || message.cmd !== "collect") return;
   try {
     const rows = collectRows();
-    const rows = collectRows();
     const count = Math.max(rows.length - 1, 0);
     if (count > 0) {
       writeSheet(rows, resolveExportName());
