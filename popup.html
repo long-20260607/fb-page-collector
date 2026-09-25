@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Page Collector</title>
+  <style>
+    body {
+      width: 250px;
+      margin: 0;
+      padding: 18px;
+      font-family: "Segoe UI", "Microsoft YaHei", sans-serif;
+      background: #1c1d24;
+      color: #eceff4;
+    }
+    .title {
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      margin-bottom: 16px;
+      color: #8ab4ff;
+    }
+    #grabBtn {
+      width: 100%;
+      padding: 10px 0;
+      border: none;
+      border-radius: 6px;
+      background: #2f6fed;
+      color: #fff;
+      font-size: 13px;
+      cursor: pointer;
+    }
+    #grabBtn:disabled { background: #3a3d47; cursor: default; }
+    #log {
+      margin-top: 12px;
+      min-height: 32px;
+      font-size: 12px;
+      line-height: 1.5;
+      color: #9aa0ae;
+      word-break: break-all;
+    }
+  </style>
+</head>
+<body>
+  <div class="title">PAGE COLLECTOR</div>
+  <button id="grabBtn">导出当前页主页列表</button>
+  <div id="log"></div>
+  <script src="license.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
