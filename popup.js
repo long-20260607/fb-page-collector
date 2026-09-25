@@ -48,7 +48,11 @@ async function runCollect() {
   }
 
   if (result.ok) {
-    log("完成，共导出 " + result.count + " 条记录");
+    log(
+      result.count > 0
+        ? "完成，共导出 " + result.count + " 条记录"
+        : "未找到主页，未生成文件"
+    );
   } else {
     log("失败: " + (result.error || "未知错误"));
   }
